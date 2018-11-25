@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <meta charset="utf-8">
     <title>Using Parcel with OpenLayers</title>
+	<center>
+		<h1>Espoo Interactive Map :)</h1>
+	</center>
     <style>
+	  body {
+		background-color: purple;
+	    color: green;
+		font-family: 'Open Sans', sans-serif;
+	  }
       #map {
-        width: 400px;
-        height: 250px;
+        display: inline-block;
+		margin-top: 5%;
+		width: 75%;
+        height: 75%;
       }
     </style>
   </head>
   <body>
-    <div id="map"></div>
+	  <center>
+		  <div id="map"></div>
+	  </center>
     <script src="./index.js"></script>
   </body>
 </html>
