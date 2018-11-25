@@ -61433,6 +61433,8 @@ var _OSM = _interopRequireDefault(require("ol/source/OSM"));
 
 var _proj = require("ol/proj");
 
+var _condition = require("ol/events/condition.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var map = new _ol2.Map({
@@ -61445,7 +61447,16 @@ var map = new _ol2.Map({
     zoom: 12
   })
 });
-},{"ol/ol.css":"node_modules/ol/ol.css","ol":"node_modules/ol/index.js","ol/layer/Tile":"node_modules/ol/layer/Tile.js","ol/source/OSM":"node_modules/ol/source/OSM.js","ol/proj":"node_modules/ol/proj.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+map.on('click', function (evt) {
+  var coord = map.getCoordinateFromPixel(evt.pixel);
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("GET", "http://127.0.0.1:8000/espooregions/query?lon=24.82427329877504&lat=60.185587549999994&year=2015", false); // false for synchronous request
+
+  xmlHttp.send(null); // return xmlHttp.responseText;
+
+  alert(xmlHttp.responseText);
+});
+},{"ol/ol.css":"node_modules/ol/ol.css","ol":"node_modules/ol/index.js","ol/layer/Tile":"node_modules/ol/layer/Tile.js","ol/source/OSM":"node_modules/ol/source/OSM.js","ol/proj":"node_modules/ol/proj.js","ol/events/condition.js":"node_modules/ol/events/condition.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -61472,7 +61483,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50614" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51707" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
